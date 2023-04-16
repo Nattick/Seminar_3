@@ -10,3 +10,43 @@
 # Напишите программу, которая вычисляет стоимость введенного пользователем слова. 
 # Будем считать, что на вход подается только одно слово, 
 # которое содержит либо только английские, либо только русские буквы.
+
+
+
+eng = "qwertyuiopasdfghjklzxcvbnm"
+rus = "йцукенгшщзхъфывапролджэёячсмитьбюё"
+
+list_eng = {1: "AEIOULNSTR",
+       2: "DG",
+       3: "BCMP",
+       4: "FHVWY",
+       5: "K",
+       8: "X",
+       10: "Z"}
+
+list_rus = {1: "АВЕИНОРСТ",
+       2: "ДКЛМПУ",
+       3: "БГЁЬЯ",
+       4: "ЙЫ",
+       5: "ЖЗХЦЧ",
+       8: "ШЭЮ",
+       10: "ФЩЪ"}
+
+letter = list_eng, list_rus
+
+word = input("Enter any word in Russian or English: ")
+if word[0].lower() in eng:
+    sum = 0 
+    for letters in word:
+        for key, value in list_eng.items():
+            if letter.upper() in value:
+                sum += key
+    print(f"Your word value is {sum}")
+else:
+    if word[0].lower() in rus:
+        sum = 0
+        for letter in word:
+            for key, value in list_eng.items():
+                if letter.upper() in value:
+                    sum += key
+    print(f"Ypur word value is {sum}")
